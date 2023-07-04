@@ -34,6 +34,11 @@ class AddViewController: UIViewController {
         viewWithTF.layer.shadowOpacity = 0.1
         viewWithTF.layer.shadowRadius = 5
         
+        descriptionView.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        descriptionView.layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
+        descriptionView.layer.shadowOpacity = 0.5
+        descriptionView.layer.shadowRadius = 10
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapGesture))
                 view.addGestureRecognizer(tapGesture)
     }
