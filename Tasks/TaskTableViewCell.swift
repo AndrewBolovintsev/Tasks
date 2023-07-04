@@ -65,5 +65,4 @@ class TaskTableViewCell: UITableViewCell {
             print(error)
         }
     }
-    
 }

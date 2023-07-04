@@ -14,12 +14,14 @@ class Task {
     var priority: Int
     var performance: Bool
     var date: String
+    var descript: String
         
-    init(name: String, priority: Int, performance: Bool, date: String) {
+    init(name: String, priority: Int, performance: Bool, date: String, descript: String) {
         self.name = name
         self.priority = priority
         self.performance = performance
         self.date = date
+        self.descript = descript
     }
     
     func saveToCoreData() {
@@ -36,6 +38,7 @@ class Task {
         task.setValue(priority, forKey: "priority")
         task.setValue(performance, forKey: "performance")
         task.setValue(date, forKey: "date")
+        task.setValue(descript, forKey: "descript")
         
         do {
             try managedContext.save()

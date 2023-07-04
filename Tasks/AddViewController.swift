@@ -11,7 +11,7 @@ protocol AddTaskDelegate: AnyObject {
     func didAddTask(_ task: Task)
 }
 
-class AddViewController: UIViewController, UITextFieldDelegate {
+class AddViewController: UIViewController {
     
     weak var delegate: AddTaskDelegate?
 
@@ -19,7 +19,8 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var prioritySegmented: UISegmentedControl!
     @IBOutlet weak var saveOutlet: UIButton!
     @IBOutlet weak var viewWithTF: UIView!
-        
+    @IBOutlet weak var descriptionView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,7 +34,13 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         viewWithTF.layer.shadowOpacity = 0.1
         viewWithTF.layer.shadowRadius = 5
         
-        nameTaskTF.delegate = self
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapGesture))
+                view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func tapGesture() {
+        nameTaskTF.resignFirstResponder()
+        descriptionView.resignFirstResponder()
     }
     
     @IBAction func saveButton(_ sender: Any) {
@@ -45,10 +52,10 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         dateFormatter.dateFormat = "dd.MM.YYYY"
         let dateText = dateFormatter.string(from: date)
         
-        let task = Task(name: nameTaskTF.text!, priority: prioritySegmented.selectedSegmentIndex, performance: false, date: dateText)
+        let task = Task(name: nameTaskTF.text!, priority: prioritySegmented.selectedSegmentIndex, performance: false, date: dateText, descript: descriptionView.text)
         task.saveToCoreData()
 
-        let newTask = Task(name: taskName, priority: prioritySegmented.selectedSegmentIndex, performance: false, date: dateText)
+        let newTask = Task(name: taskName, priority: prioritySegmented.selectedSegmentIndex, performance: false, date: dateText, descript: descriptionView.text)
         delegate?.didAddTask(newTask)
         dismiss(animated: true)
     }
@@ -67,10 +74,5 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         else {
             prioritySegmented.selectedSegmentTintColor = #colorLiteral(red: 0.1812253594, green: 0.7537381053, blue: 0.3327225149, alpha: 1)
         }
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
     }
 }

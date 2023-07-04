@@ -18,7 +18,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="sectionIndexBackgroundColor" red="0.95925635099999995" green="0.95925635099999995" blue="0.95925635099999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" id="BTm-A4-QHd" customClass="TaskTableViewCell" customModule="Tasks" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TaskCell" id="BTm-A4-QHd" customClass="TaskTableViewCell" customModule="Tasks" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BTm-A4-QHd" id="zXT-rC-xRm">
@@ -53,6 +53,7 @@
                                     <outlet property="nameTaskOutlet" destination="PLg-fY-TWo" id="shB-DI-dEK"/>
                                     <outlet property="performanceOutlet" destination="AWf-eu-x3A" id="GDD-BZ-f6W"/>
                                     <outlet property="priorityOutlet" destination="etJ-16-nKD" id="ynW-1H-tcG"/>
+                                    <segue destination="VIM-R8-owK" kind="show" identifier="editVC" id="EgQ-yl-O60"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -76,6 +77,76 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xeB-yp-xil" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-173.2824427480916" y="-47.183098591549296"/>
+        </scene>
+        <!--Editing a task-->
+        <scene sceneID="vUs-m7-trB">
+            <objects>
+                <viewController storyboardIdentifier="editVC" id="VIM-R8-owK" customClass="EditViewController" customModule="Tasks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wrz-8a-Ehz">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y58-Sv-HWJ">
+                                <rect key="frame" x="22" y="252" width="0.0" height="0.0"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6JJ-cR-vjr">
+                                <rect key="frame" x="16" y="158" width="361" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ocu-Ah-Z6O">
+                                <rect key="frame" x="38" y="210" width="317" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="High"/>
+                                    <segment title="Normal"/>
+                                    <segment title="Low"/>
+                                </segments>
+                                <connections>
+                                    <action selector="priorityAction:" destination="VIM-R8-owK" eventType="valueChanged" id="2D3-1e-MAu"/>
+                                </connections>
+                            </segmentedControl>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mvM-yq-JeC">
+                                <rect key="frame" x="16" y="290" width="361" height="528"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.9371047616" green="0.9371047616" blue="0.94760888809999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Q3-Dw-Pzy">
+                                <rect key="frame" x="16" y="258" width="94" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Jbc-ec-oze"/>
+                        <color key="backgroundColor" red="0.9371047616" green="0.9371047616" blue="0.94410848619999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Editing a task" id="OGf-kk-5LM">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="HXY-Rl-wU8">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="saveButton:" destination="VIM-R8-owK" id="GnJ-1m-LEV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="descriptView" destination="mvM-yq-JeC" id="oVn-tp-Lw5"/>
+                        <outlet property="nameTF" destination="6JJ-cR-vjr" id="tTB-da-o1K"/>
+                        <outlet property="prioritySegmented" destination="ocu-Ah-Z6O" id="YsO-3g-coH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H8o-mf-lW7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="730.53435114503816" y="298.59154929577466"/>
         </scene>
         <!--Add View Controller-->
         <scene sceneID="3i3-Z9-4PB">
@@ -166,6 +237,21 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FW5-YR-pL6">
+                                <rect key="frame" x="22" y="298" width="348" height="340"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MP7-H3-B6z">
+                                <rect key="frame" x="22" y="264" width="110" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="grQ-WS-Qfp"/>
                         <color key="backgroundColor" red="0.93857789039999995" green="0.93545752760000001" blue="0.94603055719999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -173,6 +259,7 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="descriptionView" destination="FW5-YR-pL6" id="lb6-w6-U9P"/>
                         <outlet property="nameTaskTF" destination="qA1-LM-WQO" id="Pyr-it-ett"/>
                         <outlet property="prioritySegmented" destination="UlX-Ba-cU2" id="uYL-i9-PDx"/>
                         <outlet property="saveOutlet" destination="6R4-EU-IxS" id="W7W-2o-SXW"/>
@@ -181,7 +268,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nq2-I9-wK0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="794.6564885496183" y="-47.183098591549296"/>
+            <point key="canvasLocation" x="730.53435114503816" y="-393.66197183098592"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iSJ-tm-BXH">
@@ -207,6 +294,9 @@
         <image name="Image" width="30" height="30"/>
         <image name="Image 2" width="20" height="20"/>
         <image name="multiply" catalog="system" width="128" height="111"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

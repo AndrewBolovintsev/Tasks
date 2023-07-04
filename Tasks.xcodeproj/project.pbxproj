@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7713392E2A519EB700C7F03C /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7713392D2A519EB700C7F03C /* EditViewController.swift */; };
 		77617D922A486187005A6181 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77617D912A486187005A6181 /* AppDelegate.swift */; };
 		77617D942A486187005A6181 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77617D932A486187005A6181 /* SceneDelegate.swift */; };
 		77617D962A486187005A6181 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77617D952A486187005A6181 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7713392D2A519EB700C7F03C /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		77617D8E2A486187005A6181 /* Tasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77617D912A486187005A6181 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77617D932A486187005A6181 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 		77617D902A486187005A6181 /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
+				776193712A52C19A00967DC0 /* Models */,
 				77617D912A486187005A6181 /* AppDelegate.swift */,
 				77617D932A486187005A6181 /* SceneDelegate.swift */,
 				77617D952A486187005A6181 /* ViewController.swift */,
@@ -73,10 +76,18 @@
 				77617DA22A486189005A6181 /* Info.plist */,
 				77617D9A2A486187005A6181 /* Tasks.xcdatamodeld */,
 				77617DA82A48B931005A6181 /* AddViewController.swift */,
-				77617DAA2A48BD2E005A6181 /* Task.swift */,
 				77617DAC2A48C88E005A6181 /* TaskTableViewCell.swift */,
+				7713392D2A519EB700C7F03C /* EditViewController.swift */,
 			);
 			path = Tasks;
+			sourceTree = "<group>";
+		};
+		776193712A52C19A00967DC0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				77617DAA2A48BD2E005A6181 /* Task.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7713392E2A519EB700C7F03C /* EditViewController.swift in Sources */,
 				77617DAD2A48C88E005A6181 /* TaskTableViewCell.swift in Sources */,
 				77617DA92A48B931005A6181 /* AddViewController.swift in Sources */,
 				77617D9C2A486187005A6181 /* Tasks.xcdatamodeld in Sources */,
