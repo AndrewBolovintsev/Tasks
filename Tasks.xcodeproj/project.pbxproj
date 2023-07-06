@@ -67,17 +67,15 @@
 			isa = PBXGroup;
 			children = (
 				776193712A52C19A00967DC0 /* Models */,
+				776193962A5673DB00967DC0 /* Views */,
+				776193972A5673E600967DC0 /* ViewModels */,
 				77617D912A486187005A6181 /* AppDelegate.swift */,
 				77617D932A486187005A6181 /* SceneDelegate.swift */,
-				77617D952A486187005A6181 /* ViewController.swift */,
 				77617D972A486187005A6181 /* Main.storyboard */,
 				77617D9D2A486189005A6181 /* Assets.xcassets */,
 				77617D9F2A486189005A6181 /* LaunchScreen.storyboard */,
 				77617DA22A486189005A6181 /* Info.plist */,
 				77617D9A2A486187005A6181 /* Tasks.xcdatamodeld */,
-				77617DA82A48B931005A6181 /* AddViewController.swift */,
-				77617DAC2A48C88E005A6181 /* TaskTableViewCell.swift */,
-				7713392D2A519EB700C7F03C /* EditViewController.swift */,
 			);
 			path = Tasks;
 			sourceTree = "<group>";
@@ -88,6 +86,24 @@
 				77617DAA2A48BD2E005A6181 /* Task.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		776193962A5673DB00967DC0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				77617DA82A48B931005A6181 /* AddViewController.swift */,
+				7713392D2A519EB700C7F03C /* EditViewController.swift */,
+				77617D952A486187005A6181 /* ViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		776193972A5673E600967DC0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				77617DAC2A48C88E005A6181 /* TaskTableViewCell.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
