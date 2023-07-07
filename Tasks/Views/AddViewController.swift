@@ -24,7 +24,7 @@ class AddViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        draw() // Отрисовка интерфейса
+        //draw() // Отрисовка интерфейса
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapGesture))) // Добавление жеста тапа на экран
     }
     
